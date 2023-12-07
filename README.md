@@ -1,2 +1,2 @@
-# wordpress-management
-Wordpress management scripts and tools
+# Ops CLI
+Introducing our Operations Command Line Interface (CLI) utility, built in Node.js to facilitate streamlined and extensible operational scripting for teams. This CLI tool offers a foundation for executing simple operational scripts in Node.js, providing teams with a practical solution to enhance and simplify their product operations. Emphasizing flexibility and ease of use, our Operations CLI aims to optimize workflows and improve efficiency in managing various operational aspects of your product.
