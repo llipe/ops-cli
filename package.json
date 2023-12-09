@@ -1,0 +1,28 @@
+{
+  "name": "ops-cli",
+  "version": "1.0.0",
+  "description": "Introducing our Operations Command Line Interface (CLI) utility, built in Node.js to facilitate streamlined and extensible operational scripting for teams. This CLI tool offers a foundation for executing simple operational scripts in Node.js, providing teams with a practical solution to enhance and simplify their product operations. Emphasizing flexibility and ease of use, our Operations CLI aims to optimize workflows and improve efficiency in managing various operational aspects of your product.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/llipe/ops-cli.git"
+  },
+  "keywords": [
+    "cli",
+    "node"
+  ],
+  "author": "Felipe Mallea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/llipe/ops-cli/issues"
+  },
+  "homepage": "https://github.com/llipe/ops-cli#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "inquirer": "^9.2.12"
+  }
+}
