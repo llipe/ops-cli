@@ -4,6 +4,29 @@ Introducing our Operations Command Line Interface (CLI) utility, built in Node.j
 ## How to extend?
 Ops-cli reads all available recipes on the `./recipes` folder. They should be .js node scripts that include a `run()` function that will be the entry point for the script.
 
+```node
+import { executeCommand } from "../helpers/utils.js";
+
+/**
+ * Sample function to execute a command asynchronously
+ */
+async function run() {
+    try {
+        let command1 = 'echo "Hello World"';
+        await executeCommand(command1);
+        console.log('Command 1 executed successfully');
+
+        let command2 = 'ls -l';
+        await executeCommand(command2);
+        console.log('Command 2 executed successfully');
+    } catch (error) {
+        console.error(`Error: ${error.message}`);
+    }
+}
+
+export { run };
+```
+
 ## How to Contribute?
 We appreciate and encourage contributions to enhance the functionality and robustness of our Ops CLI. If you have improvements, new features, or bug fixes to contribute, please follow these steps:
 
