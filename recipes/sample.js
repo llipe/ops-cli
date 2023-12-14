@@ -1,6 +1,12 @@
 import { executeCommand } from "../helpers/utils.js";
 import inquirer from "inquirer";
 
+/**
+ * Runs the main function and prompts the user for their name.
+ * Executes two commands and logs the results.
+ * @param {Function} callback - The callback function to be called after execution.
+ * @returns {Promise<void>} - A promise that resolves when the execution is complete.
+ */
 async function run(callback) {
   const answers = await inquirer.prompt([
     {

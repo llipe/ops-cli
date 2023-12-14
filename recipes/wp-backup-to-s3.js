@@ -1,6 +1,11 @@
 import { executeCommand } from "../helpers/utils.js";
 import inquirer from "inquirer";
 
+/**
+ * Runs the backup script for WordPress and uploads the backup to an S3 bucket.
+ * @param {Function} callback - The callback function to be executed after the script completes.
+ * @returns {Promise<void>} - A promise that resolves when the script completes.
+ */
 async function run(callback) {
   
   /* Create an inquirer prompt to ask the user for the aws region, then the bucket name, 
