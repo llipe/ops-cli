@@ -84,12 +84,30 @@ async function showRecipeMenu() {
         const selectedModule = recipeModules.find(
           (module) => module.name === selectedRecipe
         );
-        selectedModule.module.run();
+        const recipeInstance = selectedModule.module;
+        recipeInstance.run(returnToTopMenu);
       }
     })
     .catch((error) => {
       console.error(error);
     });
+}
+
+// Create a function with a confirmation prompt that asks the user whether they want to return to the topMenu or end the program
+async function returnToTopMenu() {
+  const answers = await inquirer.prompt([
+    {
+      type: "confirm",
+      name: "returnToTopMenu",
+      message: "Return to the Menu?",
+    },
+  ]);
+  if (answers.returnToTopMenu) {
+    showTopMenu();
+  } else {
+    console.log("Exiting the app...Bye!");
+    // Add any necessary cleanup or exit logic here
+  }
 }
 
 // Export the showTopMenu function

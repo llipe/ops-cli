@@ -1,12 +1,7 @@
 import { executeCommand } from "../helpers/utils.js";
 import inquirer from "inquirer";
 
-
-/**
- * Sample function to execute a command asynchronously
- */
-async function run() {
-  // Inquirer promt to ask for the user's name
+async function run(callback) {
   const answers = await inquirer.prompt([
     {
       type: "input",
@@ -16,7 +11,6 @@ async function run() {
   ]);
 
   try {
-    // bash
     let command1 = `echo "Hello ${answers.name} on bash version"`;
     await executeCommand(command1);
     console.log(`Hello ${answers.name} on nodejs version`);
@@ -27,6 +21,7 @@ async function run() {
   } catch (error) {
     console.error(`Error: ${error.message}`);
   }
+  callback();
 }
 
 export { run };

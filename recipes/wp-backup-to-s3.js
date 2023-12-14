@@ -1,7 +1,7 @@
 import { executeCommand } from "../helpers/utils.js";
 import inquirer from "inquirer";
 
-async function run() {
+async function run(callback) {
   
   /* Create an inquirer prompt to ask the user for the aws region, then the bucket name, 
   then the wordpress directory and finally the wordpress installation name
@@ -93,6 +93,7 @@ async function run() {
   } catch (error) {
     console.error(`Error: ${error.message}`);
   }
+  callback();
 }
 
 export { run };
