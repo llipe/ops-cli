@@ -1,6 +1,8 @@
 import axios from "axios";
 import inquirer from "inquirer";
 
+
+
 /**
  * Runs the function with an optional callback.
  * Makes an API call to the useless facts API if confirmed by the user.
