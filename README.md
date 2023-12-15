@@ -10,7 +10,7 @@ import { executeCommand } from "../helpers/utils.js";
 /**
  * Sample function to execute a command asynchronously
  */
-async function run() {
+async function run(callback) {
     try {
         let command1 = 'echo "Hello World"';
         await executeCommand(command1);
@@ -22,6 +22,7 @@ async function run() {
     } catch (error) {
         console.error(`Error: ${error.message}`);
     }
+    callback();
 }
 
 export { run };
