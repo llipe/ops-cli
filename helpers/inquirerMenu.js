@@ -1,7 +1,5 @@
 import fs from "fs/promises";
 import path from "path";
-import dirname from "path";
-import fileURLToPath from "url";
 import inquirer from "inquirer";
 import appPackage from '../package.json' with { "type": "json" };
 
@@ -47,9 +45,6 @@ function printHeader() {
   console.log("====================================".white);
   console.log("  OPS-CLI: Select an option".green);
   console.log("====================================".white);
-  console.log(
-    "Ops-cli is a tool to facilitate streamlined and extensible operational scripting for teams.\nThis CLI tool offers a foundation for executing simple operational scripts.\n".gray
-  );
 }
 
 /**
