@@ -1,4 +1,4 @@
-import { executeCommand } from "../helpers/utils.js";
+import { executeCommand } from "../../helpers/executeCommand.js";
 import inquirer from "inquirer";
 
 /**
