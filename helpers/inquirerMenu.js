@@ -84,19 +84,27 @@ async function showRecipeMenu(recipeSubPath = null) {
     recipeSubPath == null ? "./recipes" : "./recipes/" + recipeSubPath;
   const recipeModules = await getRecipeModules(recipePath);
 
+  //console.log(recipeModules);
+
   const answers = await inquirer.prompt([
     {
       type: "list",
       name: "recipe",
       message: "Select a recipe to run:",
       choices: [
-        ...recipeModules.map((module) => module.name),
+        ...recipeModules.map((module) => ((module.type == "directory") ? (module.name + "/...") : module.name)),
         "Return to TopMenu",
       ],
     },
   ]);
 
-  const selectedRecipe = answers.recipe;
+  let selectedRecipe = answers.recipe;
+  console.log(selectedRecipe);
+  // If answers.recipe has a / as the last character, it is a directory. Remove the / from the string
+  if (selectedRecipe.endsWith("/...")) {
+    selectedRecipe = selectedRecipe.slice(0, -4);
+  }
+
   if (selectedRecipe === "Return to TopMenu") {
     showTopMenu();
   } else {
