@@ -25,6 +25,10 @@ async function getRecipeModules(recipeFolderParam = "./recipes") {
         type: "directory",
       });
     } else {
+      // if the file is a .md file, skip it
+      if (path.extname(file) === ".md") {
+        continue;
+      }
       const module = await import(`../${recipeFolder}/${file}`);
       const moduleName =
         module.default && module.default.name

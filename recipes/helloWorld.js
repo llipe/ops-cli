@@ -5,7 +5,7 @@
  */
 async function run(callback) {
   try {
-    console.log("Hello World!");
+    console.log("Hello! Welcome to OPS-CLI! This is just a dummy recipe. \nLook for additional information in the about section.");
   } catch (error) {
     console.error(`Error: ${error.message}`);
   }
