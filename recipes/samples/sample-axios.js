@@ -1,5 +1,5 @@
 import axios from "axios";
-import inquirer from "inquirer";
+import { confirm } from "@inquirer/prompts";
 
 /**
  * Runs the function with an optional callback.
@@ -13,16 +13,12 @@ import inquirer from "inquirer";
 async function run(callback) {
   const url = "https://uselessfacts.jsph.pl/api/v2/facts/random";
   // inquirer promt to confirm api call
-  const answers = await inquirer.prompt([
-    {
-      type: "confirm",
-      name: "confirm",
-      message: "Call the useless facts API?",
-    },
-  ]);
-  
+  const answers = await confirm({
+    message: "Call the useless facts API?",
+  });
+
   // if user does not confirm, call the callback function and return
-  if (!answers.confirm) {
+  if (!answers) {
     callback();
     return;
   }

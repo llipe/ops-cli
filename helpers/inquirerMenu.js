@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
-import inquirer from "inquirer";
+import { select } from '@inquirer/prompts';
+import { confirm } from '@inquirer/prompts';
 import appPackage from '../package.json' with { "type": "json" };
 
 /**
@@ -50,30 +51,38 @@ function printHeader() {
   console.log("  OPS-CLI: Select an option".green);
   console.log("====================================".white);
 }
-
 /**
  * Displays the top menu and handles the selected option.
  */
 async function showTopMenu() {
   printHeader();
-  const answers = await inquirer.prompt([
+  const answers = await select(
     {
-      type: "list",
-      name: "option",
       message: "Select an option:",
-      choices: ["Execute Recipes", "About", "Exit"],
+      choices: [{
+        name: "Execute Recipes",
+        value: "Execute Recipes",
+      },{
+        name: "About",
+        value: "About",
+      },{
+        name: "Exit",
+        value: "Exit",
+      }],
     },
-  ]);
+  );
 
-  const selectedOption = answers.option;
-  if (selectedOption === "Execute Recipes") {
+  if (answers === "Execute Recipes") {
     showRecipeMenu();
-  } else if (selectedOption === "About") {
+  } else if (answers === "About") {
     showAboutMenu();
     // Add any necessary cleanup or exit logic here
-  } else if (selectedOption === "Exit") {
+  } else if (answers === "Exit") {
     console.log("Exiting the app...Bye!");
     // Add any necessary cleanup or exit logic here
+  } else {
+    console.log("Invalid option selected.");
+    returnToTopMenu();
   }
 }
 
@@ -90,20 +99,20 @@ async function showRecipeMenu(recipeSubPath = null) {
 
   //console.log(recipeModules);
 
-  const answers = await inquirer.prompt([
+  const answers = await select(
     {
-      type: "list",
-      name: "recipe",
       message: "Select a recipe to run:",
       choices: [
-        ...recipeModules.map((module) => ((module.type == "directory") ? (module.name + "/...") : module.name)),
-        "Return to TopMenu",
+        ...recipeModules.map((module) => ({
+          name: module.name + (module.type == "directory" ? "/..." : ""),
+          value: module.name + (module.type == "directory" ? "/..." : "")
+        })),
+        {name: "Return to TopMenu", value: "Return to TopMenu"},
       ],
     },
-  ]);
+  );
 
-  let selectedRecipe = answers.recipe;
-  console.log(selectedRecipe);
+  let selectedRecipe = answers;
   // If answers.recipe has a / as the last character, it is a directory. Remove the / from the string
   if (selectedRecipe.endsWith("/...")) {
     selectedRecipe = selectedRecipe.slice(0, -4);
@@ -144,15 +153,9 @@ async function showAboutMenu() {
  * Asks the user whether they want to return to the top menu or end the program.
  */
 async function returnToTopMenu() {
-  const answers = await inquirer.prompt([
-    {
-      type: "confirm",
-      name: "returnToTopMenu",
-      message: "Return to the Menu?",
-    },
-  ]);
+  const answers = await confirm({message: "Return to the Menu?"});
 
-  if (answers.returnToTopMenu) {
+  if (answers) {
     showTopMenu();
   } else {
     console.log("Exiting the app...Bye!");

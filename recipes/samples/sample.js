@@ -1,5 +1,5 @@
 import { executeCommand } from "../../helpers/executeCommand.js";
-import inquirer from "inquirer";
+import { input } from "@inquirer/prompts";
 
 /**
  * Runs the main function and prompts the user for their name.
@@ -8,18 +8,14 @@ import inquirer from "inquirer";
  * @returns {Promise<void>} - A promise that resolves when the execution is complete.
  */
 async function run(callback) {
-  const answers = await inquirer.prompt([
-    {
-      type: "input",
-      name: "name",
-      message: "Enter your name:",
-    },
-  ]);
+  const answers = await input({
+    message: "Enter your name:",
+  });
 
   try {
-    let command1 = `echo "Hello ${answers.name} on bash version"`;
+    let command1 = `echo "Hello ${answers} on bash version"`;
     await executeCommand(command1);
-    console.log(`Hello ${answers.name} on nodejs version`);
+    console.log(`Hello ${answers} on nodejs version`);
 
     let command2 = "ls -l";
     await executeCommand(command2);
