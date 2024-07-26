@@ -1,5 +1,5 @@
 import { executeCommand } from "../../helpers/executeCommand.js";
-import inquirer from "inquirer";
+import { select, input } from "@inquirer/prompts";
 
 /**
  * Runs the backup script for WordPress and uploads the backup to an S3 bucket.
@@ -7,49 +7,38 @@ import inquirer from "inquirer";
  * @returns {Promise<void>} - A promise that resolves when the script completes.
  */
 async function run(callback) {
-  
   /* Create an inquirer prompt to ask the user for the aws region, then the bucket name, 
   then the wordpress directory and finally the wordpress installation name
   */
   const awsRegions = [
-    "us-east-1",
-    "us-west-1",
-    "us-west-2",
-    "eu-west-1",
-    "eu-central-1",
-    "ap-southeast-1",
-    "ap-southeast-2",
-    "ap-northeast-1",
-    "ap-northeast-2",
+    { name: "us-east-1", value: "us-east-1" },
+    { name: "us-west-1", value: "us-west-1" },
+    { name: "us-west-2", value: "us-west-2" },
+    { name: "eu-west-1", value: "eu-west-1" },
+    { name: "eu-central-1", value: "eu-central-1" },
+    { name: "ap-southeast-1", value: "ap-southeast-1" },
+    { name: "ap-southeast-2", value: "ap-southeast-2" },
+    { name: "ap-northeast-1", value: "ap-northeast-1" },
+    { name: "ap-northeast-2", value: "ap-northeast-2" },
   ];
-  const answers = await inquirer.prompt([
-    {
-      type: "list",
-      name: "awsRegion",
+  const answers = {
+    awsRegion: await select({
       message: "Select the AWS region:",
       choices: awsRegions,
-    },
-    {
-      type: "input",
-      name: "bucketName",
-      message: "Enter the S3 bucket name:",
-    },
-    {
-      type: "input",
-      name: "wordpressDirectory",
+    }),
+    bucketName: await input({ message: "Enter the S3 bucket name:" }),
+    wordpressDirectory: await input({
       message: "Enter the WordPress directory:",
-    },
-    {
-      type: "input",
-      name: "wordpressInstallationName",
+    }),
+    wordpressInstallationName: await input({
       message: "Enter the WordPress installation name:",
-    },
-  ]);
+    }),
+  };
 
   // Execute the script
   try {
     const wpPath = answers.wordpressDirectory;
-    let wpName = answers.wordpressInstallationName;
+    const wpName = answers.wordpressInstallationName;
     const awsRegion = answers.awsRegion;
     const bucketName = answers.bucketName;
 

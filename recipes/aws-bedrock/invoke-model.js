@@ -1,4 +1,5 @@
-import inquirer from "inquirer";
+import { input, confirm } from "@inquirer/prompts";
+
 import {
   BedrockRuntimeClient,
   InvokeModelCommand,
@@ -51,25 +52,17 @@ export const invokeModel = async (prompt, modelId = MODEL_ID) => {
 
 async function run(callback) {
   // Ask for the prompt input using inquirer
-  const userInputPrompt = await inquirer.prompt([
-    {
-      type: "input",
-      name: "prompt",
-      message: "Enter a prompt:",
-    },
-  ]);
+  const userInputPrompt = await input({
+    message: "Enter a prompt:",
+  });
 
   // inquirer promt to confirm api call
-  const answers = await inquirer.prompt([
-    {
-      type: "confirm",
-      name: "confirm",
-      message: "Call the bedrock API?",
-    },
-  ]);
+  const answers = await confirm({
+    message: "Call the bedrock API?",
+  });
 
   // if user does not confirm, call the callback function and return
-  if (!answers.confirm) {
+  if (!answers) {
     callback();
     return;
   }
@@ -79,7 +72,7 @@ async function run(callback) {
     console.log("-".repeat(53));
     console.log("Calling Bedrock API");
     console.log("Model ID: " + MODEL_ID);
-    console.log("Prompt: " + userInputPrompt.prompt);
+    console.log("Prompt: " + userInputPrompt);
     console.log("-".repeat(53));
 
     const response = await invokeModel(userInputPrompt.prompt, MODEL_ID);

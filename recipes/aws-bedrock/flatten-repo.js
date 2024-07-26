@@ -1,12 +1,11 @@
 import fs from "fs";
 import path from "path";
 import ignore from "ignore";
-import inquirer from "inquirer";
-
+import { input } from '@inquirer/prompts';
 
 /**
  * Runs the flatten-repo script.
- * 
+ *
  * @param {Function} callback - The callback function to be called after the script finishes running.
  * @returns {Promise<void>} - A promise that resolves when the script finishes running.
  */
@@ -22,8 +21,7 @@ async function run(callback) {
         ignored = ignored.add(".*"); // Ignore all hidden files
         ignored = ignored.add("*test*"); // Ignore all files with "test" in the name
         ignored = ignored.add("package-lock.json"); // Ignore package-lock.json
-        
-        console.log(ignored);
+
         return ignored;
       }
       return ignore();
@@ -68,15 +66,11 @@ async function run(callback) {
     };
 
     // Prompt the user for the repo path
-    const answers = await inquirer.prompt([
-      {
-        type: "input",
-        name: "path",
-        message: "Full path to the repo (e.g:/path/to/your/repo):",
-      },
-    ]);
+    const answers = await input({
+      message: "Full path to the repo (e.g:/path/to/your/repo):",
+    });
 
-    const repoPath = answers.path;
+    const repoPath = answers;
     const outputFile = "./output-file.txt";
 
     mergeFiles(repoPath, outputFile);

@@ -1,4 +1,4 @@
-// ****** Source: README.md******
+// ****** Source: README.md ******
 # Proyecto base para APIs del sistema Logistic Engine
 
 logistic-engine-base-project
@@ -101,7 +101,7 @@ Ej:
     | index.ts                 # Punto de partida de la aplicacion
 
 
-// ****** Source: build.ts******
+// ****** Source: build.ts ******
 import s from 'shelljs';
 import config from './tsconfig.build.json';
 const outDir = config.compilerOptions.outDir;
@@ -114,7 +114,7 @@ s.cp(
 );
 
 
-// ****** Source: nodemon.json******
+// ****** Source: nodemon.json ******
 {
   "execMap": {
     "ts": "ts-node"
@@ -125,7 +125,7 @@ s.cp(
 }
 
 
-// ****** Source: package.json******
+// ****** Source: package.json ******
 {
   "name": "rest-typescript",
   "version": "1.1.1",
@@ -235,7 +235,7 @@ s.cp(
 }
 
 
-// ****** Source: src/domains/common/schemas/Capacity.ts******
+// ****** Source: src/domains/common/schemas/Capacity.ts ******
 import { Schema, Document, model } from 'mongoose';
 
 export interface Capacity extends Document {
@@ -333,7 +333,7 @@ const capacitySchema = new Schema(
 export default model('Capacity', capacitySchema);
 
 
-// ****** Source: src/domains/common/schemas/Cargoskus.ts******
+// ****** Source: src/domains/common/schemas/Cargoskus.ts ******
 import { Schema, Document, model } from 'mongoose';
 
 export interface Cargosku extends Document {
@@ -357,7 +357,7 @@ const cargoskuSchema = new Schema({
 export default model('Cargoskus', cargoskuSchema);
 
 
-// ****** Source: src/domains/common/schemas/Cluster.ts******
+// ****** Source: src/domains/common/schemas/Cluster.ts ******
 import { Schema, Document, model } from 'mongoose';
 
 export interface Cluster extends Document {
@@ -410,7 +410,7 @@ clusterSchema.methods = {
 export default model('Cluster', clusterSchema);
 
 
-// ****** Source: src/domains/common/schemas/Commune.ts******
+// ****** Source: src/domains/common/schemas/Commune.ts ******
 import { Schema, Document, model } from 'mongoose';
 import Region from './Region';
 
@@ -531,7 +531,7 @@ communeSchema.statics = {
 export default model('Commune', communeSchema);
 
 
-// ****** Source: src/domains/common/schemas/Country.ts******
+// ****** Source: src/domains/common/schemas/Country.ts ******
 import { Schema, Document, model } from 'mongoose';
 
 export interface Country extends Document {
@@ -559,7 +559,7 @@ const countrySchema = new Schema({
 export default model('Country', countrySchema);
 
 
-// ****** Source: src/domains/common/schemas/Holiday.ts******
+// ****** Source: src/domains/common/schemas/Holiday.ts ******
 import { Schema, Document, model, Model } from 'mongoose';
 import { getNewDate } from '../../../infrastructure/helpers/date';
 import moment from 'moment';
@@ -722,7 +722,7 @@ holidaySchema.statics = {
 export default model<Holiday, HolidayModel>('Holiday', holidaySchema);
 
 
-// ****** Source: src/domains/common/schemas/MainRoute.ts******
+// ****** Source: src/domains/common/schemas/MainRoute.ts ******
 import { Schema, Document, model, Types } from 'mongoose';
 import Office from './Office';
 import Country from './Country';
@@ -856,7 +856,7 @@ mainRouteSchema.statics.getByCommunesOrDistricts = getByCommunesOrDistricts;
 export default model<MainRoute>('MainRoute', mainRouteSchema);
 
 
-// ****** Source: src/domains/common/schemas/MainSchedule.ts******
+// ****** Source: src/domains/common/schemas/MainSchedule.ts ******
 import { Schema, Document, model } from 'mongoose';
 import Office from './Office';
 import MainWizard from './MainWizard';
@@ -893,7 +893,7 @@ mainScheduleSchema.statics.getIdByZone = getIdByZone;
 export default model('MainSchedule', mainScheduleSchema);
 
 
-// ****** Source: src/domains/common/schemas/MainWizard.ts******
+// ****** Source: src/domains/common/schemas/MainWizard.ts ******
 import { Schema, model, Document } from 'mongoose';
 import Office from './Office';
 import Country from './Country';
@@ -937,7 +937,7 @@ const mainWizardSchema = new Schema({
 export default model('MainWizard', mainWizardSchema);
 
 
-// ****** Source: src/domains/common/schemas/MainZone.ts******
+// ****** Source: src/domains/common/schemas/MainZone.ts ******
 import { Schema, Document, model } from 'mongoose';
 import Office from './Office';
 import MainWizard from './MainWizard';
@@ -980,7 +980,7 @@ mainZoneSchema.statics.getIdByCode = getIdByCode;
 export default model('MainZone', mainZoneSchema);
 
 
-// ****** Source: src/domains/common/schemas/Manufacture.ts******
+// ****** Source: src/domains/common/schemas/Manufacture.ts ******
 import { Schema, Document, model, Types } from 'mongoose';
 
 export interface Manufacture extends Document {
@@ -1050,7 +1050,7 @@ const manufacturesSchema = new Schema({
 export default model('Manufacture', manufacturesSchema);
 
 
-// ****** Source: src/domains/common/schemas/Office.ts******
+// ****** Source: src/domains/common/schemas/Office.ts ******
 import { Schema, Document, model } from 'mongoose';
 
 export interface Office extends Document {
@@ -1273,7 +1273,7 @@ officeSchema.statics.getWarehouseIdByCode = getWarehouseIdByCode;
 export default model('Office', officeSchema);
 
 
-// ****** Source: src/domains/common/schemas/OfficeRelationships.ts******
+// ****** Source: src/domains/common/schemas/OfficeRelationships.ts ******
 import { Schema, Document, model } from 'mongoose';
 import Office from './Office';
 
@@ -1349,7 +1349,7 @@ export default model<OfficeRelationship>(
 );
 
 
-// ****** Source: src/domains/common/schemas/Region.ts******
+// ****** Source: src/domains/common/schemas/Region.ts ******
 import { Schema, Document, model } from 'mongoose';
 import Commune from './Commune';
 import Country from './Country';
@@ -1412,7 +1412,7 @@ const regionSchema = new Schema({
 export default model('Region', regionSchema);
 
 
-// ****** Source: src/domains/common/schemas/Schedule.ts******
+// ****** Source: src/domains/common/schemas/Schedule.ts ******
 import { Schema, Document, model } from 'mongoose';
 
 export interface Schedule extends Document {
@@ -1657,7 +1657,7 @@ const scheduleSchema = new Schema(
 export default model('Schedule', scheduleSchema);
 
 
-// ****** Source: src/domains/common/schemas/Service.ts******
+// ****** Source: src/domains/common/schemas/Service.ts ******
 import { Schema, Document, model } from 'mongoose';
 import Country from './Country';
 
@@ -1723,7 +1723,7 @@ const serviceSchema = new Schema({
 export default model('Service', serviceSchema);
 
 
-// ****** Source: src/domains/common/schemas/ShippingRates.ts******
+// ****** Source: src/domains/common/schemas/ShippingRates.ts ******
 import { Schema, Document, model } from 'mongoose';
 
 export interface ShippingRates extends Document {
@@ -1813,7 +1813,7 @@ shippingRatesSchema.statics.getShippingRate = getShippingRate;
 export default model('Shippingrates', shippingRatesSchema);
 
 
-// ****** Source: src/domains/common/schemas/Size.ts******
+// ****** Source: src/domains/common/schemas/Size.ts ******
 import { Schema, Document, model, Types } from 'mongoose';
 
 export interface Size extends Document {
@@ -1882,7 +1882,7 @@ const sizeSchema = new Schema({
 export default model('Size', sizeSchema);
 
 
-// ****** Source: src/domains/fulfillment/controllers/index.ts******
+// ****** Source: src/domains/fulfillment/controllers/index.ts ******
 import { Request, Response, NextFunction } from 'express';
 import { boomify } from '@hapi/boom';
 import { Controller, Post } from '../../../types/decorators';
@@ -1941,7 +1941,7 @@ export default class FulfillmentController {
 }
 
 
-// ****** Source: src/domains/fulfillment/entities/GetFulfillmentDto.ts******
+// ****** Source: src/domains/fulfillment/entities/GetFulfillmentDto.ts ******
 interface Request {
   date?: string | Date;
 }
@@ -1970,7 +1970,7 @@ export type TypeOfServiceFulfillmentDto = {
 };
 
 
-// ****** Source: src/domains/fulfillment/services/fulfillmentCalculation/findBestMatchedFulfillmentDateToDispatchDate.ts******
+// ****** Source: src/domains/fulfillment/services/fulfillmentCalculation/findBestMatchedFulfillmentDateToDispatchDate.ts ******
 import moment from 'moment';
 import LogHandler from '../../../../infrastructure/common/handlers/logHandler';
 
@@ -2031,7 +2031,7 @@ export function findBestMatchedFulfillmentDateToDispatchDate(
 }
 
 
-// ****** Source: src/domains/fulfillment/services/fulfillmentCalculation/formatFulfillment.ts******
+// ****** Source: src/domains/fulfillment/services/fulfillmentCalculation/formatFulfillment.ts ******
 export const formatFulfillment = (data) => data.map(
   ({ typeofServices }) => ({
     typeofServices: typeofServices.map(
@@ -2044,7 +2044,7 @@ export const formatFulfillment = (data) => data.map(
 );
 
 
-// ****** Source: src/domains/fulfillment/services/fulfillmentCalculation/index.ts******
+// ****** Source: src/domains/fulfillment/services/fulfillmentCalculation/index.ts ******
 import moment from 'moment';
 import { cloneDeep } from 'lodash';
 import {
@@ -2124,7 +2124,7 @@ export async function scheduleCalculator(
 }
 
 
-// ****** Source: src/domains/fulfillment/services/fulfillmentCalculation/setNewStartDates.ts******
+// ****** Source: src/domains/fulfillment/services/fulfillmentCalculation/setNewStartDates.ts ******
 import { getArrayOfDatesBetween } from '../../../../infrastructure/helpers/date';
 import { GetFullfillmentRequestDto } from '../../entities/GetFulfillmentDto';
 
@@ -2146,7 +2146,7 @@ export function setNewStartDates(data: GetFullfillmentRequestDto, date: string) 
 }
 
 
-// ****** Source: src/domains/schedule/common/executeFlow.ts******
+// ****** Source: src/domains/schedule/common/executeFlow.ts ******
 import { LOG_PROCESS_TIME } from '../../../infrastructure/common/env';
 import LogHandler from '../../../infrastructure/common/handlers/logHandler';
 import { Timer } from '../../../infrastructure/helpers';
@@ -2189,7 +2189,7 @@ export async function executeFlow(data, ...functions) {
 }
 
 
-// ****** Source: src/domains/schedule/common/getOfficeType.ts******
+// ****** Source: src/domains/schedule/common/getOfficeType.ts ******
 import boom from '@hapi/boom';
 import OfficeModel from '../../common/schemas/Office';
 import { getCacheClient } from '../../../infrastructure/gateways/cacheClient';
@@ -2221,7 +2221,7 @@ export async function getOfficeType(
 }
 
 
-// ****** Source: src/domains/schedule/common/getSlackDaysByPriority.ts******
+// ****** Source: src/domains/schedule/common/getSlackDaysByPriority.ts ******
 export const getSlackDaysByPriority = (data) => {
   const { hierarchy, courier } = data;
   let slackDaysByPriority = null;
@@ -2257,7 +2257,7 @@ export const getSlackDaysByPriority = (data) => {
 };
 
 
-// ****** Source: src/domains/schedule/common/hasCapacity.ts******
+// ****** Source: src/domains/schedule/common/hasCapacity.ts ******
 import moment from 'moment';
 import { create, all } from 'mathjs';
 
@@ -2293,7 +2293,7 @@ export async function hasCapacity(date, objCapacity, orderData = {}) {
 }
 
 
-// ****** Source: src/domains/schedule/common/hasCapacityGenericForSchedules.ts******
+// ****** Source: src/domains/schedule/common/hasCapacityGenericForSchedules.ts ******
 const { create, all } = require('mathjs');
 
 const math = create(all, { number: 'BigNumber' });
@@ -2332,7 +2332,7 @@ export function hasCapacityGenericForSchedules(
 }
 
 
-// ****** Source: src/domains/schedule/common/logFlow.ts******
+// ****** Source: src/domains/schedule/common/logFlow.ts ******
 export function logFlow(type, functionName, isActive = false) {
   return async (data) => {
     const { products, isWithLog } = data;
@@ -2368,7 +2368,7 @@ export function logFlow(type, functionName, isActive = false) {
 }
 
 
-// ****** Source: src/domains/schedule/common/modifyDataSchedules.ts******
+// ****** Source: src/domains/schedule/common/modifyDataSchedules.ts ******
 import { dayBetween } from '../../../infrastructure/helpers/date';
 
 export function modifyDataSchedules(
@@ -2385,10 +2385,10 @@ export function modifyDataSchedules(
 }
 
 
-// ****** Source: src/domains/schedule/common/scheduleTypeOfServices.ts******
+// ****** Source: src/domains/schedule/common/scheduleTypeOfServices.ts ******
 
 
-// ****** Source: src/domains/schedule/common/typeOfServicesFunctions.ts******
+// ****** Source: src/domains/schedule/common/typeOfServicesFunctions.ts ******
 import boom from '@hapi/boom';
 import { getCacheClient } from '../../../infrastructure/gateways/cacheClient';
 import { ScheduleErrors } from '../../shipping/entities/constants';
@@ -2979,7 +2979,7 @@ const formatReceptionScheduleToConsume = (schedule, courier, courierCode) => {
 };
 
 
-// ****** Source: src/domains/schedule/common/validDay.ts******
+// ****** Source: src/domains/schedule/common/validDay.ts ******
 import boom from '@hapi/boom';
 import {
   addDays,
@@ -3041,7 +3041,7 @@ export async function validDay(
 }
 
 
-// ****** Source: src/domains/schedule/controllers/index.ts******
+// ****** Source: src/domains/schedule/controllers/index.ts ******
 import { Request, Response, NextFunction } from 'express';
 import { boomify } from '@hapi/boom';
 import { Controller, Post } from '../../../types/decorators';
@@ -3095,7 +3095,7 @@ export default class ScheduleController {
 }
 
 
-// ****** Source: src/domains/schedule/entities/ScheduleCalculationRequestDto.ts******
+// ****** Source: src/domains/schedule/entities/ScheduleCalculationRequestDto.ts ******
 export type ScheduleCalculationRequestDto = {
   products: ProductCalculationDto[];
   country: string;
@@ -3357,7 +3357,7 @@ type TypeOfServiceFormatedDto = {
 };
 
 
-// ****** Source: src/domains/schedule/entities/SimulatorReloadRequestDto.ts******
+// ****** Source: src/domains/schedule/entities/SimulatorReloadRequestDto.ts ******
 import { Product } from '../../shipping/entities/Product';
 
 export type SimulatorReloadRequestDto = {
@@ -3376,7 +3376,7 @@ export type SimulatorReloadRequestDto = {
 };
 
 
-// ****** Source: src/domains/schedule/exceptions/DateOutOfRangeException.ts******
+// ****** Source: src/domains/schedule/exceptions/DateOutOfRangeException.ts ******
 import BaseError from '../../../infrastructure/common/exceptions/BaseError';
 
 const code = 'BAD_REQUEST_ERROR';
@@ -3398,7 +3398,7 @@ export default class DateOutOfRangeException extends BaseError {
 }
 
 
-// ****** Source: src/domains/schedule/exceptions/LocationNotFoundException.ts******
+// ****** Source: src/domains/schedule/exceptions/LocationNotFoundException.ts ******
 import BaseError from '../../../infrastructure/common/exceptions/BaseError';
 
 const code = 'BAD_REQUEST_ERROR';
@@ -3420,7 +3420,7 @@ export default class LocationNotFoundException extends BaseError {
 }
 
 
-// ****** Source: src/domains/schedule/exceptions/ProductsNotFoundException.ts******
+// ****** Source: src/domains/schedule/exceptions/ProductsNotFoundException.ts ******
 import BaseError from '../../../infrastructure/common/exceptions/BaseError';
 
 const code = 'BAD_REQUEST_ERROR';
@@ -3442,7 +3442,7 @@ export default class ProductsNotFoundException extends BaseError {
 }
 
 
-// ****** Source: src/domains/schedule/exceptions/ServicesNotFoundException.ts******
+// ****** Source: src/domains/schedule/exceptions/ServicesNotFoundException.ts ******
 import BaseError from '../../../infrastructure/common/exceptions/BaseError';
 
 const code = 'BAD_REQUEST_ERROR';
@@ -3464,7 +3464,7 @@ export default class ServicesNotFoundException extends BaseError {
 }
 
 
-// ****** Source: src/domains/schedule/services/buildData.ts******
+// ****** Source: src/domains/schedule/services/buildData.ts ******
 import { CONFIG_KEY } from '../../../infrastructure/common/env';
 import { getTrackId } from '../../../infrastructure/common/handlers/traceHandler';
 import { addDecimals, multiplyDecimals } from '../../../infrastructure/helpers';
@@ -3539,7 +3539,7 @@ const isWithCalculationForDeliveryMethods = (products) => {
 };
 
 
-// ****** Source: src/domains/schedule/services/getScheduleCalculation/index.ts******
+// ****** Source: src/domains/schedule/services/getScheduleCalculation/index.ts ******
 import boom from '@hapi/boom';
 import { buildData } from '../buildData';
 import { scheduleCalculationForMixedOrder } from './scheduleCalculationForMixedOrder';
@@ -3574,10 +3574,10 @@ export async function getScheduleCalculation(body) {
 }
 
 
-// ****** Source: src/domains/schedule/services/getScheduleCalculation/scheduleCalculation.ts******
+// ****** Source: src/domains/schedule/services/getScheduleCalculation/scheduleCalculation.ts ******
 
 
-// ****** Source: src/domains/schedule/services/getScheduleCalculation/scheduleCalculationForMixedOrder.ts******
+// ****** Source: src/domains/schedule/services/getScheduleCalculation/scheduleCalculationForMixedOrder.ts ******
 import { max, uniqBy } from 'lodash';
 import { formatMatrixError } from '../../../../infrastructure/helpers/schedule';
 import { DeliveryMethods } from '../../../shipping/entities/constants';
@@ -3665,7 +3665,7 @@ function maxDateByDeliveryMethod(
 }
 
 
-// ****** Source: src/domains/schedule/services/index.ts******
+// ****** Source: src/domains/schedule/services/index.ts ******
 import boom from '@hapi/boom';
 import { buildData } from './buildData';
 import { scheduleCalculation } from './scheduleCalculation';
@@ -3713,7 +3713,7 @@ export async function getSimulatorUnit(body) {
 }
 
 
-// ****** Source: src/domains/schedule/services/scheduleCalculation/calculateDateRange.ts******
+// ****** Source: src/domains/schedule/services/scheduleCalculation/calculateDateRange.ts ******
 import { addDays, dayBetween } from '../../../../infrastructure/helpers/date';
 import { validDay } from '../../common/validDay';
 
@@ -3784,7 +3784,7 @@ function getDateRangeTyos(typeOfservices) {
 }
 
 
-// ****** Source: src/domains/schedule/services/scheduleCalculation/courierIsStoreOrWarehouse.ts******
+// ****** Source: src/domains/schedule/services/scheduleCalculation/courierIsStoreOrWarehouse.ts ******
 import { getOfficeType } from '../../common/getOfficeType';
 
 export const courierIsStoreOrWarehouse = async (data) => {
@@ -3811,7 +3811,7 @@ export const courierIsStoreOrWarehouse = async (data) => {
   };
 }
 
-// ****** Source: src/domains/schedule/services/scheduleCalculation/cutTimeByTypeOfService.ts******
+// ****** Source: src/domains/schedule/services/scheduleCalculation/cutTimeByTypeOfService.ts ******
 import boom from '@hapi/boom';
 import {
   addDays,
@@ -3846,7 +3846,7 @@ export async function cutTimeByTypeOfService(data = {}) {
 }
 
 
-// ****** Source: src/domains/schedule/services/scheduleCalculation/fulfillmentBuild.ts******
+// ****** Source: src/domains/schedule/services/scheduleCalculation/fulfillmentBuild.ts ******
 import {
   dateDiff,
   getFormatDate,
@@ -4115,7 +4115,7 @@ const getDispatchDay = (isLastSequence, dispatchDate) => {
 };
 
 
-// ****** Source: src/domains/schedule/services/scheduleCalculation/getCapacityData.ts******
+// ****** Source: src/domains/schedule/services/scheduleCalculation/getCapacityData.ts ******
 import MainRoute from '../../../common/schemas/MainRoute';
 import { uniqBy } from 'lodash';
 import { getOfficeType } from '../../common/getOfficeType';
@@ -4193,7 +4193,7 @@ function parseCapacityArrayToObject(capacity) {
 }
 
 
-// ****** Source: src/domains/schedule/services/scheduleCalculation/getHolidays.ts******
+// ****** Source: src/domains/schedule/services/scheduleCalculation/getHolidays.ts ******
 import boom from '@hapi/boom';
 import { getCacheClient } from '../../../../infrastructure/gateways/cacheClient';
 import Holiday from '../../../common/schemas/Holiday';
@@ -4330,7 +4330,7 @@ async function defineHolidaysByRelation(
 }
 
 
-// ****** Source: src/domains/schedule/services/scheduleCalculation/index.ts******
+// ****** Source: src/domains/schedule/services/scheduleCalculation/index.ts ******
 import { cloneDeep } from 'lodash';
 import { executeFlow } from '../../common/executeFlow';
 import { getCapacityData } from './getCapacityData';
@@ -4440,7 +4440,7 @@ export async function scheduleCalculationFulfillment(data) {
 }
 
 
-// ****** Source: src/domains/schedule/services/scheduleCalculation/indirectFlow.ts******
+// ****** Source: src/domains/schedule/services/scheduleCalculation/indirectFlow.ts ******
 import boom from '@hapi/boom';
 import {
   receptionTypeOfServices,
@@ -4793,7 +4793,7 @@ function sumRelationByProperty(relations, propertyName, index) {
 }
 
 
-// ****** Source: src/domains/schedule/services/scheduleCalculation/internalWork.ts******
+// ****** Source: src/domains/schedule/services/scheduleCalculation/internalWork.ts ******
 import boom from '@hapi/boom';
 import { uniq } from 'lodash';
 import { getCacheClient } from '../../../../infrastructure/gateways/cacheClient';
@@ -4855,7 +4855,7 @@ export async function internalWork(data = {} as any) {
 }
 
 
-// ****** Source: src/domains/schedule/services/scheduleCalculation/manufactureLeadTime.ts******
+// ****** Source: src/domains/schedule/services/scheduleCalculation/manufactureLeadTime.ts ******
 import boom from '@hapi/boom';
 import ManufactureModel from '../../../common/schemas/Manufacture';
 import { getCacheClient } from '../../../../infrastructure/gateways/cacheClient';
@@ -5064,7 +5064,7 @@ function getDaysFromManufactureData(today, hour, manufactureData = {} as any) {
 }
 
 
-// ****** Source: src/domains/schedule/services/scheduleCalculation/pickingSchedule.ts******
+// ****** Source: src/domains/schedule/services/scheduleCalculation/pickingSchedule.ts ******
 import boom from '@hapi/boom';
 import Office from '../../../common/schemas/Office';
 import Schedule from '../../../common/schemas/Schedule';
@@ -5460,7 +5460,7 @@ const flowTypeSelector = (types) => {
 };
 
 
-// ****** Source: src/domains/schedule/services/scheduleCalculation/routeFrequency.ts******
+// ****** Source: src/domains/schedule/services/scheduleCalculation/routeFrequency.ts ******
 import boom from '@hapi/boom';
 import LogHandler from '../../../../infrastructure/common/handlers/logHandler';
 import {
@@ -5513,7 +5513,7 @@ const validateRouteFrequency = (product) => {
 };
 
 
-// ****** Source: src/domains/schedule/services/scheduleCalculation/scheduleDaysTRF.ts******
+// ****** Source: src/domains/schedule/services/scheduleCalculation/scheduleDaysTRF.ts ******
 import boom from '@hapi/boom';
 import { dayBetween } from '../../../../infrastructure/helpers/date';
 import { scheduleTypeOfServices } from '../../common/typeOfServicesFunctions';
@@ -5554,7 +5554,7 @@ export async function scheduleDaysTRF(data) {
 }
 
 
-// ****** Source: src/domains/schedule/services/scheduleCalculation/scheduleOfDispatch.ts******
+// ****** Source: src/domains/schedule/services/scheduleCalculation/scheduleOfDispatch.ts ******
 import boom from '@hapi/boom';
 import {
   addDays,
@@ -5640,7 +5640,7 @@ function deleteDatesOutOfRange(data) {
 }
 
 
-// ****** Source: src/domains/schedule/services/scheduleCalculation/scheduleReception.ts******
+// ****** Source: src/domains/schedule/services/scheduleCalculation/scheduleReception.ts ******
 import boom from '@hapi/boom';
 import { receptionTypeOfServices } from '../../common/typeOfServicesFunctions';
 import { dayBetween } from '../../../../infrastructure/helpers/date';
@@ -5681,7 +5681,7 @@ export async function scheduleReception(data) {
 }
 
 
-// ****** Source: src/domains/schedule/services/scheduleCalculation/scheduleReceptionExceptDays.ts******
+// ****** Source: src/domains/schedule/services/scheduleCalculation/scheduleReceptionExceptDays.ts ******
 import boom from '@hapi/boom';
 import { receptionTypeOfServices } from '../../common/typeOfServicesFunctions';
 import { dayBetween } from '../../../../infrastructure/helpers/date';
@@ -5723,7 +5723,7 @@ export async function scheduleReceptionExceptDays(data) {
 }
 
 
-// ****** Source: src/domains/schedule/services/scheduleCalculation/scheduleTransfer.ts******
+// ****** Source: src/domains/schedule/services/scheduleCalculation/scheduleTransfer.ts ******
 import boom from '@hapi/boom';
 import { scheduleTypeOfServices } from '../../common/typeOfServicesFunctions';
 import {
@@ -5958,7 +5958,7 @@ function changeLogsForFixPicking(internalDate, pickingDate, logs, workDate) {
 }
 
 
-// ****** Source: src/domains/schedule/services/scheduleCalculation/slackByTypeOfService.ts******
+// ****** Source: src/domains/schedule/services/scheduleCalculation/slackByTypeOfService.ts ******
 import boom from '@hapi/boom';
 import {
   dayBetween,
@@ -6000,7 +6000,7 @@ export async function slackByTypeOfService(data = {} as any) {
 }
 
 
-// ****** Source: src/domains/schedule/services/scheduleCalculation/slackOfHierarchy.ts******
+// ****** Source: src/domains/schedule/services/scheduleCalculation/slackOfHierarchy.ts ******
 import boom from '@hapi/boom';
 import { getSlackDaysByPriority } from '../../common/getSlackDaysByPriority';
 import { evaluateDatesArray } from '../../../../infrastructure/helpers/date';
@@ -6078,7 +6078,7 @@ export async function slackOfHierarchy(data = {} as any) {
 }
 
 
-// ****** Source: src/domains/schedule/services/scheduleCalculation/termLastMile.ts******
+// ****** Source: src/domains/schedule/services/scheduleCalculation/termLastMile.ts ******
 import boom from '@hapi/boom';
 import { validDay } from '../../common/validDay';
 import { addDays, dayBetween } from '../../../../infrastructure/helpers/date';
@@ -6132,7 +6132,7 @@ const getDateByLastMileFormat = (data) => {
 };
 
 
-// ****** Source: src/domains/schedule/services/scheduleCalculation/transferRelation.ts******
+// ****** Source: src/domains/schedule/services/scheduleCalculation/transferRelation.ts ******
 import boom from '@hapi/boom';
 import {
   dayBetween,
@@ -6197,7 +6197,7 @@ function findDirectRelation(bestSchedule, transferData) {
 }
 
 
-// ****** Source: src/domains/shipping/controllers/index.ts******
+// ****** Source: src/domains/shipping/controllers/index.ts ******
 import { Request, Response, NextFunction } from 'express';
 import responseManager from '../../../infrastructure/common/responseManager';
 import { Controller, Post } from '../../../types/decorators';
@@ -6240,7 +6240,7 @@ export default class ShippingController {
 }
 
 
-// ****** Source: src/domains/shipping/entities/GetShippingRatesLegacyRequestDto.ts******
+// ****** Source: src/domains/shipping/entities/GetShippingRatesLegacyRequestDto.ts ******
 export type GetShippingRatesLegacyRequestDto = ShippingRateRequest[];
 
 type ShippingRateRequest = {
@@ -6261,7 +6261,7 @@ type Product = {
 };
 
 
-// ****** Source: src/domains/shipping/entities/Product.ts******
+// ****** Source: src/domains/shipping/entities/Product.ts ******
 export type Product = {
   sku: string;
   quantity: string;
@@ -6425,7 +6425,7 @@ type ScheduleTypeOfService = {
 };
 
 
-// ****** Source: src/domains/shipping/entities/constants.ts******
+// ****** Source: src/domains/shipping/entities/constants.ts ******
 export enum ImsErrors {
   NoStock = 'Sin stock en IMS',
   SkuNotFound = 'Sku no encontrado en IMS',
@@ -6463,7 +6463,7 @@ export enum ServiceKey {
 }
 
 
-// ****** Source: src/domains/shipping/services/getConsolidatedOrder/filterSchedulesByVolume.ts******
+// ****** Source: src/domains/shipping/services/getConsolidatedOrder/filterSchedulesByVolume.ts ******
 export function filterSchedulesByVolume(typeofServices, sizeOrder) {
   const newBestSchedules = typeofServices.filter(
     ({
@@ -6479,7 +6479,7 @@ export function filterSchedulesByVolume(typeofServices, sizeOrder) {
 }
 
 
-// ****** Source: src/domains/shipping/services/getConsolidatedOrder/findProductsToTransport.ts******
+// ****** Source: src/domains/shipping/services/getConsolidatedOrder/findProductsToTransport.ts ******
 import { filterSchedulesByVolume } from './filterSchedulesByVolume';
 
 export function findProductsToTransport(bestSchedulesFromProducts, products) {
@@ -6530,7 +6530,7 @@ function isBestScheduleContainsProduct(
 }
 
 
-// ****** Source: src/domains/shipping/services/getConsolidatedOrder/getBestPriorityByOplOrder.ts******
+// ****** Source: src/domains/shipping/services/getConsolidatedOrder/getBestPriorityByOplOrder.ts ******
 import min from 'lodash/min';
 
 export function getBestPriorityByOplOrder(bestSchedulesByOrder) {
@@ -6544,7 +6544,7 @@ export function getBestPriorityByOplOrder(bestSchedulesByOrder) {
 }
 
 
-// ****** Source: src/domains/shipping/services/getConsolidatedOrder/getBestSchedulesFromProducts.ts******
+// ****** Source: src/domains/shipping/services/getConsolidatedOrder/getBestSchedulesFromProducts.ts ******
 import uniqBy from 'lodash/uniqBy';
 
 export function getBestSchedulesFromProducts(products) {
@@ -6558,7 +6558,7 @@ export function getBestSchedulesFromProducts(products) {
 }
 
 
-// ****** Source: src/domains/shipping/services/getConsolidatedOrder/getConsolidateSimpleProduct.ts******
+// ****** Source: src/domains/shipping/services/getConsolidatedOrder/getConsolidateSimpleProduct.ts ******
 import groupBy from 'lodash/groupBy';
 import { filterSchedulesByVolume } from './filterSchedulesByVolume';
 
@@ -6624,7 +6624,7 @@ function reducePriority(acc, val, index) {
 }
 
 
-// ****** Source: src/domains/shipping/services/getConsolidatedOrder/getConsolidatedWarehouses.ts******
+// ****** Source: src/domains/shipping/services/getConsolidatedOrder/getConsolidatedWarehouses.ts ******
 import uniq from 'lodash/uniq';
 import intersection from 'lodash/intersection';
 
@@ -6683,7 +6683,7 @@ export function getConsolidatedWarehouses(products) {
 }
 
 
-// ****** Source: src/domains/shipping/services/getConsolidatedOrder/getMatrixFromProducts.ts******
+// ****** Source: src/domains/shipping/services/getConsolidatedOrder/getMatrixFromProducts.ts ******
 export function getMatrixFromProducts(data) {
   const { products, newBestSchedule } = data;
   let matrixFromProducts = {};
@@ -6730,14 +6730,14 @@ function getTypeOfServicesFromBestSchedule(typeofServices, courierCode) {
 }
 
 
-// ****** Source: src/domains/shipping/services/getConsolidatedOrder/getSkusFromOrder.ts******
+// ****** Source: src/domains/shipping/services/getConsolidatedOrder/getSkusFromOrder.ts ******
 export function getSkusFromOrder(products) {
   const skus = products.map((product) => product.sku);
   return skus;
 }
 
 
-// ****** Source: src/domains/shipping/services/getConsolidatedOrder/getTypeOfServicesByPriority.ts******
+// ****** Source: src/domains/shipping/services/getConsolidatedOrder/getTypeOfServicesByPriority.ts ******
 import { DeliveryMethods } from '../../entities/constants';
 
 export function getTypeOfServicesByPriority(
@@ -6780,7 +6780,7 @@ export function getTypeOfServicesByPriority(
 }
 
 
-// ****** Source: src/domains/shipping/services/getConsolidatedOrder/index.ts******
+// ****** Source: src/domains/shipping/services/getConsolidatedOrder/index.ts ******
 import { Product } from '../../entities/Product';
 import { findProductsToTransport } from './findProductsToTransport';
 import { getBestPriorityByOplOrder } from './getBestPriorityByOplOrder';
@@ -6895,7 +6895,7 @@ export const getConsolidatedOrderByOpl = async (products: Product[]) => {
 };
 
 
-// ****** Source: src/domains/shipping/services/getConsolidatedOrder/seekConsolidateOrder.ts******
+// ****** Source: src/domains/shipping/services/getConsolidatedOrder/seekConsolidateOrder.ts ******
 import LogHandler from '../../../../infrastructure/common/handlers/logHandler';
 import { getMatrixFromProducts } from './getMatrixFromProducts';
 
@@ -7112,7 +7112,7 @@ const orderProductsBySchedule = (schedules: Schedule[]): Schedule[] => {
 };
 
 
-// ****** Source: src/domains/shipping/services/getShippingRatesLegacy/getOneShippingRateLegacy.ts******
+// ****** Source: src/domains/shipping/services/getShippingRatesLegacy/getOneShippingRateLegacy.ts ******
 import { getCacheClient } from '../../../../infrastructure/gateways/cacheClient';
 import {
   getCountryId,
@@ -7375,7 +7375,7 @@ async function matchCargoSkuCodeByPrice(rates, country, regionCode) {
 }
 
 
-// ****** Source: src/domains/shipping/services/getShippingRatesLegacy/index.ts******
+// ****** Source: src/domains/shipping/services/getShippingRatesLegacy/index.ts ******
 import { getOneShippingRateLegacy } from './getOneShippingRateLegacy';
 
 export async function shippingRatesLegacy(data) {
@@ -7385,7 +7385,7 @@ export async function shippingRatesLegacy(data) {
 }
 
 
-// ****** Source: src/index.ts******
+// ****** Source: src/index.ts ******
 import * as env from './infrastructure/common/env';
 import apm from './infrastructure/common/apm';
 apm.start();
@@ -7399,7 +7399,7 @@ if (env.REDIS_CONFIG) initCacheClient();
 export default new Server().listen(env.PORT);
 
 
-// ****** Source: src/infrastructure/common/apm.ts******
+// ****** Source: src/infrastructure/common/apm.ts ******
 import apm from 'elastic-apm-node';
 import logger from './logger';
 import { APP_ID } from './env';
@@ -7433,7 +7433,7 @@ const start = () => {
 export default { start };
 
 
-// ****** Source: src/infrastructure/common/env.ts******
+// ****** Source: src/infrastructure/common/env.ts ******
 import { AxiosRequestConfig } from 'axios';
 import dotenv from 'dotenv';
 import { ServiceKey } from '../../domains/shipping/entities/constants';
@@ -7485,7 +7485,7 @@ export const ENABLE_BODY_LOGS = process.env.ENABLE_BODY_LOGS === 'true';
 export const MONGO_DEBUG = process.env.MONGO_DEBUG === 'true';
 
 
-// ****** Source: src/infrastructure/common/exceptions/BaseError.ts******
+// ****** Source: src/infrastructure/common/exceptions/BaseError.ts ******
 export default class BaseError extends Error {
   public status;
   public baseMessage;
@@ -7503,7 +7503,7 @@ export default class BaseError extends Error {
 }
 
 
-// ****** Source: src/infrastructure/common/exceptions/ClientException.ts******
+// ****** Source: src/infrastructure/common/exceptions/ClientException.ts ******
 import { AxiosError } from 'axios';
 import { getStatusCode } from '../../gateways/apiClient';
 import BaseError from './BaseError';
@@ -7536,7 +7536,7 @@ export default class ClientException extends BaseError {
 }
 
 
-// ****** Source: src/infrastructure/common/exceptions/EntityNotFoundException.ts******
+// ****** Source: src/infrastructure/common/exceptions/EntityNotFoundException.ts ******
 import BaseError from './BaseError';
 const code = 'ENTITY_NOT_FOUND_ERROR';
 const name = 'EntityNotFoundException';
@@ -7560,7 +7560,7 @@ export default class EntityNotFoundException extends BaseError {
 }
 
 
-// ****** Source: src/infrastructure/common/exceptions/EntityValidationException.ts******
+// ****** Source: src/infrastructure/common/exceptions/EntityValidationException.ts ******
 import { ZodIssue } from 'zod';
 import BaseError from './BaseError';
 const code = 'ENTITY_VALIDATION_ERROR';
@@ -7593,7 +7593,7 @@ export default class EntityValidationException extends BaseError {
 }
 
 
-// ****** Source: src/infrastructure/common/exceptions/ExtendedError.ts******
+// ****** Source: src/infrastructure/common/exceptions/ExtendedError.ts ******
 class ExtendedError extends Error {
   data: any;
 
@@ -7607,7 +7607,7 @@ class ExtendedError extends Error {
 export { ExtendedError };
 
 
-// ****** Source: src/infrastructure/common/handlers/logHandler.ts******
+// ****** Source: src/infrastructure/common/handlers/logHandler.ts ******
 import { APP_ID, LOG_LEVEL, SYSTEM } from '../env';
 import logger from '../logger';
 import { getCountry, getTrackId } from './traceHandler';
@@ -7648,7 +7648,7 @@ export default class LogHandler {
 }
 
 
-// ****** Source: src/infrastructure/common/handlers/traceHandler.ts******
+// ****** Source: src/infrastructure/common/handlers/traceHandler.ts ******
 import cls, { Namespace } from 'cls-hooked';
 
 const name = 'requestSession';
@@ -7667,7 +7667,7 @@ export const setTrackId = (trackId: string) =>
   cls.getNamespace(name).set('trackId', trackId);
 
 
-// ****** Source: src/infrastructure/common/logger.ts******
+// ****** Source: src/infrastructure/common/logger.ts ******
 import pino from 'pino';
 import { APP_ID, ENVIRONMENT, LOG_LEVEL } from './env';
 
@@ -7682,7 +7682,7 @@ const logger = pino({
 export default logger;
 
 
-// ****** Source: src/infrastructure/common/responseManager.ts******
+// ****** Source: src/infrastructure/common/responseManager.ts ******
 import { Response } from 'express';
 
 const responseManager = <T = any>(
@@ -7707,7 +7707,7 @@ export const simulatorResponseManager = (res: Response, matrix) => {
 export default responseManager;
 
 
-// ****** Source: src/infrastructure/common/timer.ts******
+// ****** Source: src/infrastructure/common/timer.ts ******
 import { performance } from 'perf_hooks';
 
 export default class Timer {
@@ -7722,7 +7722,7 @@ export default class Timer {
 }
 
 
-// ****** Source: src/infrastructure/common/types.ts******
+// ****** Source: src/infrastructure/common/types.ts ******
 import { AxiosRequestConfig } from 'axios';
 
 export interface HttpConfig {
@@ -7738,7 +7738,7 @@ export enum CurrencyCode {
 }
 
 
-// ****** Source: src/infrastructure/gateways/apiClient.ts******
+// ****** Source: src/infrastructure/gateways/apiClient.ts ******
 import Axios, {
   AxiosResponse,
   AxiosError,
@@ -7906,7 +7906,7 @@ export default class ApiClient {
 }
 
 
-// ****** Source: src/infrastructure/gateways/cacheClient.ts******
+// ****** Source: src/infrastructure/gateways/cacheClient.ts ******
 import IORedis, { Redis, RedisOptions } from 'ioredis';
 import LogHandler from '../common/handlers/logHandler';
 import { COUNTRY, REDIS_CONFIG, REDIS_EXP } from '../common/env';
@@ -8055,7 +8055,7 @@ export const getCacheClient = (): CacheClient => {
 };
 
 
-// ****** Source: src/infrastructure/helpers/date.ts******
+// ****** Source: src/infrastructure/helpers/date.ts ******
 import moment from 'moment';
 import momentTimeZone from 'moment-timezone';
 import { COUNTRY } from '../common/env';
@@ -8301,7 +8301,7 @@ const getArrayOfDates = (
 };
 
 
-// ****** Source: src/infrastructure/helpers/index.ts******
+// ****** Source: src/infrastructure/helpers/index.ts ******
 import { BigNumber, all, create } from 'mathjs';
 
 const math = create(all, { number: 'BigNumber' });
@@ -8342,7 +8342,7 @@ export class Timer {
 }
 
 
-// ****** Source: src/infrastructure/helpers/mongoHelper.ts******
+// ****** Source: src/infrastructure/helpers/mongoHelper.ts ******
 import { Types } from 'mongoose';
 
 export const getCountryId = {
@@ -8353,7 +8353,7 @@ export const getCountryId = {
 export const getObjectIdFromMongoose = (id = null) => new Types.ObjectId(id);
 
 
-// ****** Source: src/infrastructure/helpers/schedule.ts******
+// ****** Source: src/infrastructure/helpers/schedule.ts ******
 export const isValidCapacity = (capacityData) => {
   const { active, assigned, occupied } = capacityData;
   return active && assigned > 0 && occupied < assigned;
@@ -8389,7 +8389,7 @@ export const formatMatrixError = (data, requestToMatrix) => {
 };
 
 
-// ****** Source: src/infrastructure/helpers/validationHelper.ts******
+// ****** Source: src/infrastructure/helpers/validationHelper.ts ******
 import { SafeParseError, z } from 'zod';
 import EntityValidationException from '../common/exceptions/EntityValidationException';
 
@@ -8411,7 +8411,7 @@ export const validateSchema =
   };
 
 
-// ****** Source: src/infrastructure/middlewares/error.ts******
+// ****** Source: src/infrastructure/middlewares/error.ts ******
 import { Response, NextFunction } from 'express';
 import logHandler from '../common/handlers/logHandler';
 
@@ -8441,7 +8441,7 @@ export default function errorMiddleware(
 }
 
 
-// ****** Source: src/infrastructure/middlewares/request.ts******
+// ****** Source: src/infrastructure/middlewares/request.ts ******
 import { Request, Response, NextFunction } from 'express';
 import { v4 } from 'uuid';
 import { BASE_PATH, ENABLE_BODY_LOGS } from '../common/env';
@@ -8496,7 +8496,7 @@ export default function beforeRequestMiddleware(
 }
 
 
-// ****** Source: src/infrastructure/middlewares/trace.ts******
+// ****** Source: src/infrastructure/middlewares/trace.ts ******
 import { Request, Response, NextFunction } from 'express';
 import { Namespace } from 'cls-hooked';
 import { createTrace } from '../common/handlers/traceHandler';
@@ -8516,7 +8516,7 @@ export default function traceMiddleware(
 }
 
 
-// ****** Source: src/infrastructure/repositories/mongoConnector.ts******
+// ****** Source: src/infrastructure/repositories/mongoConnector.ts ******
 import { MongooseOptions, connect as connectDB, set } from 'mongoose';
 import { MONGO_DEBUG, MONGO_URI } from '../common/env';
 import logger from '../common/logger';
@@ -8538,7 +8538,7 @@ const connect = async () => {
 export default connect;
 
 
-// ****** Source: src/infrastructure/routes/index.ts******
+// ****** Source: src/infrastructure/routes/index.ts ******
 import { Router } from 'express';
 import openApiRoute from './openApi';
 import { registerAllRoutes } from './utils';
@@ -8557,7 +8557,7 @@ router.use(openApiRoute);
 export default router;
 
 
-// ****** Source: src/infrastructure/routes/openApi.ts******
+// ****** Source: src/infrastructure/routes/openApi.ts ******
 import { Router } from 'express';
 import path from 'path';
 import swaggerUi from 'swagger-ui-express';
@@ -8572,7 +8572,7 @@ router.get('/api-explorer', swaggerUi.setup(swaggerDocument));
 export default router;
 
 
-// ****** Source: src/infrastructure/routes/utils.ts******
+// ****** Source: src/infrastructure/routes/utils.ts ******
 import { Router } from 'express';
 import { ClassType, RouteDefinition } from '../../types/decorators';
 import LogHandler from '../common/handlers/logHandler';
@@ -8608,7 +8608,7 @@ export const registerAllRoutes = (router: Router, controllers: ClassType[]) => {
 };
 
 
-// ****** Source: src/infrastructure/server.ts******
+// ****** Source: src/infrastructure/server.ts ******
 import 'reflect-metadata';
 import express, { RequestHandler } from 'express';
 import actuator from 'express-actuator';
@@ -8658,7 +8658,7 @@ export default class ExpressServer {
 }
 
 
-// ****** Source: src/types/decorators.ts******
+// ****** Source: src/types/decorators.ts ******
 export type RestMethod = 'get' | 'post' | 'delete' | 'put' | 'patch';
 
 export type ClassType<C extends object = object> = new (...args: any) => C;
@@ -8702,7 +8702,7 @@ export const Patch = (path: string = '') => routeDecoratorBase('patch', path);
 export const Delete = (path: string = '') => routeDecoratorBase('delete', path);
 
 
-// ****** Source: src/types/enums.ts******
+// ****** Source: src/types/enums.ts ******
 export enum HIERARCHY_TYPE {
   DEPARTMENT,
   LINE,
@@ -8721,7 +8721,7 @@ export enum LAST_MILE_FORMAT {
 }
 
 
-// ****** Source: src/types/request/CreateRequestPayload.ts******
+// ****** Source: src/types/request/CreateRequestPayload.ts ******
 import { InsertManyOptions } from 'mongoose';
 import { z } from 'zod';
 import { validateSchema } from '../../infrastructure/helpers/validationHelper';
@@ -8742,7 +8742,7 @@ export const validateCreateRequestPayload = validateSchema(
 );
 
 
-// ****** Source: src/types/request/DeleteRequestPayload.ts******
+// ****** Source: src/types/request/DeleteRequestPayload.ts ******
 import { FilterQuery, QueryOptions } from 'mongoose';
 import { z } from 'zod';
 import { validateSchema } from '../../infrastructure/helpers/validationHelper';
@@ -8763,7 +8763,7 @@ export const validateDeleteRequestPayload = validateSchema(
 );
 
 
-// ****** Source: src/types/request/FindRequestPayload.ts******
+// ****** Source: src/types/request/FindRequestPayload.ts ******
 import { z } from 'zod';
 import { FilterQuery, ProjectionType, QueryOptions } from 'mongoose';
 import { validateSchema } from '../../infrastructure/helpers/validationHelper';
@@ -8786,7 +8786,7 @@ export const validateFindRequestPayload = validateSchema(
 );
 
 
-// ****** Source: src/types/request/MutationRequestPayload.ts******
+// ****** Source: src/types/request/MutationRequestPayload.ts ******
 import {
   MongooseBulkWriteOptions,
   MongooseBulkWritePerWriteOptions,
@@ -8811,7 +8811,7 @@ export interface MutationRequestPayload {
 }
 
 
-// ****** Source: src/types/request/UpdateRequestPayload.ts******
+// ****** Source: src/types/request/UpdateRequestPayload.ts ******
 import { FilterQuery, QueryOptions, UpdateQuery } from 'mongoose';
 import { z } from 'zod';
 import { validateSchema } from '../../infrastructure/helpers/validationHelper';
@@ -8834,7 +8834,7 @@ export const validateUpdateRequestPayload = validateSchema(
 );
 
 
-// ****** Source: tsconfig.build.json******
+// ****** Source: tsconfig.build.json ******
 {
   "compilerOptions": {
     "module": "commonjs",
@@ -8863,7 +8863,7 @@ export const validateUpdateRequestPayload = validateSchema(
 }
 
 
-// ****** Source: tsconfig.json******
+// ****** Source: tsconfig.json ******
 {
   "compilerOptions": {
     "module": "commonjs",

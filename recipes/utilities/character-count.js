@@ -1,19 +1,15 @@
 import fs from "fs/promises";
-import inquirer from "inquirer";
+import { input } from "@inquirer/prompts";
 
 async function run(callback) {
   try {
     // Use inquirer to get the file path input
-    const answers = await inquirer.prompt([
-      {
-        type: "input",
-        name: "filePath",
-        message: "Full path to file (e.g.:/usr/file/awesome.txt):",
-      },
-    ]);
+    const answers = await input({
+      message: "Full path to file (e.g.:/usr/file/awesome.txt):",
+    });
 
     // Read the file from the given path
-    const data = await fs.readFile(answers.filePath, "utf8");
+    const data = await fs.readFile(answers, "utf8");
 
     // Count the characters in the file
     const characterCount = data.length;
